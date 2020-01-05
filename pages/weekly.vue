@@ -24,7 +24,8 @@
           <div class="flex">
             <Proposition
               v-for="project in projects"
-              :key="project.title"
+              :key="project.id"
+              :id="project.id"
               :title="project.title"
               :description="project.description"
               :comments="project.comments"

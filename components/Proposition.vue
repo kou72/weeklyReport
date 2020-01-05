@@ -7,11 +7,12 @@
           variant="danger"
           v-model="title"
           onfocus="this.select()"
+          @chenge="updateTitle(id)"
         ></b-form-input>
       </b-col>
       <!-- closeボタン -->
       <b-col cols="2" class="text-right">
-        <b-button pill variant="outline-danger" @click="close(title)">
+        <b-button pill variant="outline-danger" @click="close(id)">
           <i class="fa fa-close"></i>
         </b-button>
       </b-col>
@@ -44,9 +45,9 @@ import { mapMutations } from "vuex";
 
 export default {
   name: "Proposition",
-  props: ["title", "description", "comments"],
+  props: ["id", "title", "description", "comments"],
   methods: {
-    ...mapMutations("PropositionInput", ["close"])
+    ...mapMutations("PropositionInput", ["close", "updateTitle"])
   }
 };
 </script>
