@@ -2,11 +2,11 @@
   <b-card header="勤務状況">
     <b-row v-for="day in week" v-bind:key="day.date" class="mx-auto px-0">
       <form class="form-inline col text-center">
-        <p class="mx-3 my-2">{{ day.date }}</p>
+        <p class="my-2 w-25">{{ day.date }}</p>
         <b-form-checkbox
           :checked="day.holiday"
           @change="toggle(day)"
-          class="mr-2 pl-3"
+          class="mr-2"
           >休暇</b-form-checkbox
         >
         <div v-if="day.holiday === false">
