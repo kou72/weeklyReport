@@ -39,13 +39,10 @@ export const mutations = {
       comments: "所感を入力"
     });
   },
-  close(state, id) {
-    state.projects = state.projects.filter(project => {
-      return project.id !== id;
-    });
+  close(state, index) {
+    state.projects.splice(index, 1);
   },
-  updateTitle(state, id) {
-    console.log(id);
-    console.log(state.projects.find(project => project.id === id));
+  updateProjects(state, { index, key, value }) {
+    state.projects[index][key] = value;
   }
 };

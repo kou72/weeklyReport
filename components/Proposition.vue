@@ -4,15 +4,14 @@
       <!-- 案件名 -->
       <b-col cols="10">
         <b-form-input
-          variant="danger"
-          v-model="title"
           onfocus="this.select()"
-          @chenge="updateTitle(id)"
+          :value="projects[index].title"
+          @input="updateProjects({ index: index, key: 'title', value: $event })"
         ></b-form-input>
       </b-col>
       <!-- closeボタン -->
       <b-col cols="2" class="text-right">
-        <b-button pill variant="outline-danger" @click="close(id)">
+        <b-button pill variant="outline-danger" @click="close(index)">
           <i class="fa fa-close"></i>
         </b-button>
       </b-col>
@@ -23,8 +22,11 @@
       <b-form-textarea
         class="mx-3"
         rows="2"
-        v-model="description"
         onfocus="this.select()"
+        :value="projects[index].description"
+        @input="
+          updateProjects({ index: index, key: 'description', value: $event })
+        "
       ></b-form-textarea>
     </b-row>
     <!-- 所感フォーム -->
@@ -33,21 +35,27 @@
       <b-form-textarea
         class="mx-3"
         rows="4"
-        v-model="comments"
         onfocus="this.select()"
+        :value="projects[index].comments"
+        @input="
+          updateProjects({ index: index, key: 'comments', value: $event })
+        "
       ></b-form-textarea>
     </b-row>
   </b-card>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "Proposition",
-  props: ["id", "title", "description", "comments"],
+  props: ["index"],
+  computed: {
+    ...mapState("PropositionInput", ["projects"])
+  },
   methods: {
-    ...mapMutations("PropositionInput", ["close", "updateTitle"])
+    ...mapMutations("PropositionInput", ["close", "updateProjects"])
   }
 };
 </script>

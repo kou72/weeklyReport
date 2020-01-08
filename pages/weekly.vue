@@ -23,12 +23,9 @@
         <b-col cols="7">
           <div class="flex">
             <Proposition
-              v-for="project in projects"
+              v-for="(project, index) in projects"
               :key="project.id"
-              :id="project.id"
-              :title="project.title"
-              :description="project.description"
-              :comments="project.comments"
+              :index="index"
             ></Proposition>
           </div>
         </b-col>
