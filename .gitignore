@@ -83,3 +83,6 @@ dist
 # DS_Store
 DS_Store
 **/DS_Store
+
+# firebase hosting 要素
+.firebase
