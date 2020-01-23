@@ -5,74 +5,73 @@ moment.locale("ja");
 
 Vue.use(Vuex);
 
+const Monday = moment()
+  .day(1)
+  .add(-1, "isoWeek");
+const Tuesday = moment()
+  .day(2)
+  .add(-1, "isoWeek");
+const Wednesday = moment()
+  .day(3)
+  .add(-1, "isoWeek");
+const Thursday = moment()
+  .day(4)
+  .add(-1, "isoWeek");
+const Friday = moment()
+  .day(5)
+  .add(-1, "isoWeek");
+const Saturday = moment()
+  .day(6)
+  .add(-1, "isoWeek");
+const Sunday = moment().day(0);
+
 export const state = () => ({
-  lastSunday: moment()
-    .day(0)
-    .format("YYYY/MM/DD"),
   week: [
     {
-      date: moment()
-        .day(1)
-        .add("isoWeek", -1)
-        .format("MM/DD(ddd)"),
+      date: Monday.format("MM/DD(ddd)"),
       punchIn: "09:00",
       punchOut: "17:30",
       holiday: false
     },
     {
-      date: moment()
-        .day(2)
-        .add("isoWeek", -1)
-        .format("MM/DD(ddd)"),
+      date: Tuesday.format("MM/DD(ddd)"),
       punchIn: "09:00",
       punchOut: "17:30",
       holiday: false
     },
     {
-      date: moment()
-        .day(3)
-        .add("isoWeek", -1)
-        .format("MM/DD(ddd)"),
+      date: Wednesday.format("MM/DD(ddd)"),
       punchIn: "09:00",
       punchOut: "17:30",
       holiday: false
     },
     {
-      date: moment()
-        .day(4)
-        .add("isoWeek", -1)
-        .format("MM/DD(ddd)"),
+      date: Thursday.format("MM/DD(ddd)"),
       punchIn: "09:00",
       punchOut: "17:30",
       holiday: false
     },
     {
-      date: moment()
-        .day(5)
-        .add("isoWeek", -1)
-        .format("MM/DD(ddd)"),
+      date: Friday.format("MM/DD(ddd)"),
       punchIn: "09:00",
       punchOut: "17:30",
       holiday: false
     },
     {
-      date: moment()
-        .day(6)
-        .add("isoWeek", -1)
-        .format("MM/DD(ddd)"),
+      date: Saturday.format("MM/DD(ddd)"),
       punchIn: "09:00",
       punchOut: "17:30",
       holiday: true
     },
     {
-      date: moment()
-        .day(0)
-        .format("MM/DD(ddd)"),
+      date: Sunday.format("MM/DD(ddd)"),
       punchIn: "09:00",
       punchOut: "17:30",
       holiday: true
     }
-  ]
+  ],
+  SundayID: Sunday.format("YYYY-MM-DD"),
+  SundayTitle: Sunday.format("YYYY/MM/DD")
 });
 
 export const mutations = {
