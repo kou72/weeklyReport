@@ -20,7 +20,7 @@
           </b-button>
         </b-col>
         <!-- 案件カード -->
-        <b-col cols="7">
+        <b-col cols="7" class="pre-scrollable" style="max-height: 75vh">
           <div class="flex">
             <Proposition
               v-for="(project, index) in projects"
@@ -32,6 +32,23 @@
         <!-- 勤務時間カード -->
         <b-col cols="5">
           <WorkedTime></WorkedTime>
+          <b-row>
+            <b-col cols="6">
+              <b-button pill block class="mt-4" variant="primary" size="lg">
+                確認
+              </b-button>
+            </b-col>
+            <b-col cols="6">
+              <b-button pill block class="mt-4" variant="primary" size="lg">
+                保存
+              </b-button>
+            </b-col>
+            <b-col cols="12">
+              <b-button pill block class="my-2" variant="success" size="lg">
+                送信
+              </b-button>
+            </b-col>
+          </b-row>
         </b-col>
       </b-row>
     </b-container>
