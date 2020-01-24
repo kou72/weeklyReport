@@ -29,9 +29,10 @@
             ></Proposition>
           </div>
         </b-col>
-        <!-- 勤務時間カード -->
         <b-col cols="5">
+          <!-- 勤務時間カード -->
           <WorkedTime></WorkedTime>
+          <!-- 操作ボタン -->
           <b-row>
             <b-col cols="6">
               <b-button pill block class="mt-4" variant="primary" size="lg">
