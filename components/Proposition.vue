@@ -6,7 +6,7 @@
         <b-form-input
           onfocus="this.select()"
           :value="projects[index].title"
-          @input="updateProjects({ index: index, key: 'title', value: $event })"
+          @input="update({ index: index, key: 'title', value: $event })"
         ></b-form-input>
       </b-col>
       <!-- closeボタン -->
@@ -24,9 +24,7 @@
         rows="2"
         onfocus="this.select()"
         :value="projects[index].description"
-        @input="
-          updateProjects({ index: index, key: 'description', value: $event })
-        "
+        @input="update({ index: index, key: 'description', value: $event })"
       ></b-form-textarea>
     </b-row>
     <!-- 所感フォーム -->
@@ -37,9 +35,7 @@
         rows="4"
         onfocus="this.select()"
         :value="projects[index].comments"
-        @input="
-          updateProjects({ index: index, key: 'comments', value: $event })
-        "
+        @input="update({ index: index, key: 'comments', value: $event })"
       ></b-form-textarea>
     </b-row>
   </b-card>
@@ -55,7 +51,7 @@ export default {
     ...mapState("PropositionInput", ["projects"])
   },
   methods: {
-    ...mapMutations("PropositionInput", ["close", "updateProjects"])
+    ...mapMutations("PropositionInput", ["close", "update"])
   }
 };
 </script>

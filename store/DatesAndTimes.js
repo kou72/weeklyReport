@@ -1,9 +1,5 @@
-import Vue from "vue";
-import Vuex from "vuex";
 import moment from "moment";
 moment.locale("ja");
-
-Vue.use(Vuex);
 
 const Monday = moment()
   .day(1)
@@ -77,5 +73,14 @@ export const state = () => ({
 export const mutations = {
   toggle(state, day) {
     day.holiday = !day.holiday;
+  },
+  update(state, { index, key, value }) {
+    state.week[index][key] = value;
+    console.log(index);
+    console.log(key);
+    console.log(value);
+  },
+  bind(state, dbWeek) {
+    state.week = dbWeek;
   }
 };

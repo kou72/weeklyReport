@@ -18,6 +18,7 @@
     "chart.js": "^2.7.1",
     "cross-env": "^5.2.0",
     "express": "^4.16.3",
+    "firebase": "^7.7.0",
     "flag-icon-css": "^2.9.0",
     "font-awesome": "^4.7.0",
     "jquery": "^1.9.1",
@@ -26,13 +27,13 @@
     "vue-chartjs": "^3.1.1"
   },
   "devDependencies": {
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "nodemon": "^1.11.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^2.0.0",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^1.11.0",
+    "sass-loader": "^6.0.6"
   }
 }

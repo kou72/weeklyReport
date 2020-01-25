@@ -1,6 +1,10 @@
 <template>
   <b-card header="勤務状況">
-    <b-row v-for="day in week" v-bind:key="day.date" class="mx-auto px-0">
+    <b-row
+      v-for="(day, index) in week"
+      v-bind:key="day.date"
+      class="mx-auto px-0"
+    >
       <form class="form-inline col text-center">
         <p class="my-2 w-25">{{ day.date }}</p>
         <b-form-checkbox
@@ -14,12 +18,14 @@
             type="time"
             :value="day.punchIn"
             size="sm"
+            @input="update({ index: index, key: 'punchIn', value: $event })"
           ></b-form-input>
           ~
           <b-form-input
             type="time"
             :value="day.punchOut"
             size="sm"
+            @input="update({ index: index, key: 'punchOut', value: $event })"
           ></b-form-input>
         </div>
       </form>
@@ -34,7 +40,7 @@ export default {
     ...mapState("DatesAndTimes", ["week"])
   },
   methods: {
-    ...mapMutations("DatesAndTimes", ["toggle"])
+    ...mapMutations("DatesAndTimes", ["toggle", "update"])
   },
   name: "WorkedTime"
 };

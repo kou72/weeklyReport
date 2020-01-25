@@ -1,39 +1,10 @@
-import Vue from "vue";
-import Vuex from "vuex";
-
-Vue.use(Vuex);
-
 export const state = () => ({
-  created: false,
-  projects: [
-    {
-      id: 1,
-      title: "案件A",
-      description: "ドキュメント作成",
-      comments: "問題なし"
-    },
-    {
-      id: 2,
-      title: "案件B",
-      description: "ドキュメント作成",
-      comments: "問題なし"
-    },
-    {
-      id: 3,
-      title: "案件C",
-      description: "ドキュメント作成",
-      comments: "問題なし"
-    }
-  ]
+  projects: []
 });
 
 export const mutations = {
-  create(state) {
-    state.created = true;
-  },
   add(state) {
     state.projects.unshift({
-      id: 99,
       title: "案件名を入力",
       description: "作業内容を入力",
       comments: "所感を入力"
@@ -42,7 +13,10 @@ export const mutations = {
   close(state, index) {
     state.projects.splice(index, 1);
   },
-  updateProjects(state, { index, key, value }) {
+  update(state, { index, key, value }) {
     state.projects[index][key] = value;
+  },
+  bind(state, dbProjects) {
+    state.projects = dbProjects;
   }
 };
