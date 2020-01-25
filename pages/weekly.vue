@@ -65,6 +65,12 @@ import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "weekly",
+  async mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      setTimeout(() => this.$nuxt.$loading.finish(), 1000);
+    });
+  },
   async fetch({ store }) {
     await store.dispatch("bindFirestore");
   },
