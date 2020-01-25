@@ -11,7 +11,8 @@ export const actions = {
     commit("DatesAndTimes/bind", snapShot.data().week);
   },
   // vuex -> firestore の処理
-  setWeekly({ commit }) {
+  async setWeekly({ commit }) {
+    window.$nuxt.$root.$loading.start(); // ロードバー
     const setData = {
       projects: this.state.PropositionInput.projects,
       week: this.state.DatesAndTimes.week
@@ -19,8 +20,10 @@ export const actions = {
     db.collection("weekly")
       .doc("head")
       .set(setData);
-    db.collection("weekly")
+    await db
+      .collection("weekly")
       .doc(this.state.DatesAndTimes.SundayID)
       .set(setData);
+    window.$nuxt.$root.$loading.finish();
   }
 };
