@@ -11,6 +11,7 @@ const changeLoaderOptions = loaders => {
 };
 
 module.exports = {
+  mode: "spa",
   /*
    ** Headers of the page
    */
