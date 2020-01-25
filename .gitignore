@@ -86,3 +86,6 @@ DS_Store
 
 # firebase hosting 要素
 .firebase
+
+# 開いているファイル
+*.swp
