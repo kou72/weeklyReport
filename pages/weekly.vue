@@ -28,6 +28,7 @@
           <!-- 操作ボタン -->
           <b-row class="my-4">
             <b-col cols="6">
+              <!-- 確認ボタン(メール本文表示) -->
               <b-button
                 v-b-modal.modalText
                 pill
@@ -38,6 +39,7 @@
               >
                 確認
               </b-button>
+              <!-- 保存ボタン(firestoreにset) -->
               <b-modal id="modalText" scrollable :title="title">
                 <WeeklyText></WeeklyText>
               </b-modal>
@@ -53,6 +55,7 @@
                 >保存
               </b-button>
             </b-col>
+            <!-- メール送信ボタン(未完成) -->
             <b-col cols="12">
               <b-button pill block class="my-2" variant="success" size="lg">
                 送信
@@ -80,12 +83,14 @@ export default {
     WeeklyText
   },
   async fetch({ store }) {
+    // firestore -> vuex
     await store.dispatch("bindFirestore");
   },
   mounted() {
+    // タイトル形成
     this.title =
       "【isoroot 週報】" + this.name + " " + this.SundayTitle + "(PSG)";
-    this.loading = true;
+    this.loading = true; // 全要素読み込んでから表示(v-show)
   },
   data() {
     return {
