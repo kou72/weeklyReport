@@ -34,12 +34,11 @@
                 block
                 class="my-2"
                 variant="primary"
-                size="lg"    >
+                size="lg"
+              >
                 確認
               </b-button>
-              <b-modal id="modalText" scrollable size="lg">
-                <MailText></MailText>
-              </b-modal>
+              <b-modal id="modalText" scrollable size="lg"> </b-modal>
             </b-col>
             <b-col cols="6">
               <b-button
@@ -67,7 +66,6 @@
 <script>
 import WorkedTime from "../components/WorkedTime.vue";
 import Proposition from "../components/Proposition";
-import MailText from "../components/MailText";
 import db from "@/plugins/firebase";
 import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
 
@@ -75,8 +73,7 @@ export default {
   name: "weekly",
   components: {
     WorkedTime,
-    Proposition,
-    MailText
+    Proposition
   },
   async fetch({ store }) {
     await store.dispatch("bindFirestore");
