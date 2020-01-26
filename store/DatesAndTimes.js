@@ -67,7 +67,9 @@ export const state = () => ({
     }
   ],
   SundayID: Sunday.format("YYYY-MM-DD"),
-  SundayTitle: Sunday.format("YYYY/MM/DD")
+  SundayTitle: Sunday.format("YYYY/MM/DD"),
+  MondayText: Monday.format("YYYY/MM/DD"),
+  SundayText: Sunday.format("MM/DD")
 });
 
 export const mutations = {

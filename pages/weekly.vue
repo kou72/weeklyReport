@@ -38,7 +38,9 @@
               >
                 確認
               </b-button>
-              <b-modal id="modalText" scrollable size="lg"> </b-modal>
+              <b-modal id="modalText" scrollable :title="title">
+                <WeeklyText></WeeklyText>
+              </b-modal>
             </b-col>
             <b-col cols="6">
               <b-button
@@ -64,8 +66,9 @@
 </template>
 
 <script>
-import WorkedTime from "../components/WorkedTime.vue";
+import WorkedTime from "../components/WorkedTime";
 import Proposition from "../components/Proposition";
+import WeeklyText from "../components/WeeklyText";
 import db from "@/plugins/firebase";
 import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
 
@@ -73,7 +76,8 @@ export default {
   name: "weekly",
   components: {
     WorkedTime,
-    Proposition
+    Proposition,
+    WeeklyText
   },
   async fetch({ store }) {
     await store.dispatch("bindFirestore");
