@@ -1,7 +1,6 @@
 <template>
   <div v-show="loading" class="animated fadeIn">
     <b-container>
-      <!-- 週報作成画面 -->
       <b-row>
         <b-col md="12">
           <!-- 週報タイトル -->
@@ -12,9 +11,9 @@
             案件を追加
           </b-button>
         </b-col>
-        <!-- 案件カード -->
         <b-col md="7" class="pre-scrollable mb-4" style="max-height: 75vh">
           <div class="flex">
+            <!-- 案件カード -->
             <Proposition
               v-for="(project, index) in projects"
               :key="project.id"
