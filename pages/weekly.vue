@@ -73,7 +73,7 @@ import WorkedTime from "../components/WorkedTime";
 import Proposition from "../components/Proposition";
 import WeeklyText from "../components/WeeklyText";
 import db from "@/plugins/firebase";
-import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "weekly",
@@ -101,8 +101,7 @@ export default {
   computed: {
     ...mapState("PropositionInput", ["projects"]),
     ...mapState("User", ["name"]),
-    ...mapState("DatesAndTimes", ["SundayTitle"]),
-    ...mapGetters("User", ["getName"])
+    ...mapState("DatesAndTimes", ["SundayTitle"])
   },
   methods: {
     ...mapMutations("PropositionInput", ["add"]),
