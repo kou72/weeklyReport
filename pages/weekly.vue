@@ -24,7 +24,6 @@
         <b-col md="5">
           <!-- 勤務時間カード -->
           <WorkedTime></WorkedTime>
-          <!-- 操作ボタン -->
           <b-row class="my-4">
             <b-col cols="6">
               <!-- 確認ボタン(メール本文表示) -->
