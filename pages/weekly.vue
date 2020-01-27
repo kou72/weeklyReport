@@ -39,7 +39,12 @@
               </b-button>
               <!-- 保存ボタン(firestoreにset) -->
               <b-modal id="modalText" scrollable :title="title">
-                <WeeklyText></WeeklyText>
+                <b-form-textarea
+                  plaintext
+                  :value="text"
+                  max-rows="100"
+                ></b-form-textarea>
+                <!-- {{ text }} -->
               </b-modal>
             </b-col>
             <b-col cols="6">
@@ -55,7 +60,14 @@
             </b-col>
             <!-- メール送信ボタン(未完成) -->
             <b-col cols="12">
-              <b-button pill block class="my-2" variant="success" size="lg">
+              <b-button
+                pill
+                block
+                class="my-2"
+                variant="success"
+                size="lg"
+                @click="send"
+              >
                 送信
               </b-button>
             </b-col>
@@ -69,16 +81,16 @@
 <script>
 import WorkedTime from "../components/WorkedTime";
 import Proposition from "../components/Proposition";
-import WeeklyText from "../components/WeeklyText";
 import db from "@/plugins/firebase";
+import sendMail from "~/modules/sendMail";
+import createText from "~/modules/createText";
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "weekly",
   components: {
     WorkedTime,
-    Proposition,
-    WeeklyText
+    Proposition
   },
   async fetch({ store }) {
     // firestore -> vuex
@@ -89,21 +101,36 @@ export default {
     this.title =
       "【isoroot 週報】" + this.name + " " + this.SundayTitle + "(PSG)";
     this.loading = true; // 全要素読み込んでから表示(v-show)
+    this.text = createText(
+      this.MondayText,
+      this.SundayText,
+      this.projects,
+      this.week
+    );
   },
   data() {
     return {
       loading: false,
-      title: ""
+      title: "",
+      text: "aaa"
     };
   },
   computed: {
     ...mapState("PropositionInput", ["projects"]),
     ...mapState("User", ["name"]),
-    ...mapState("DatesAndTimes", ["SundayTitle"])
+    ...mapState("DatesAndTimes", [
+      "SundayTitle",
+      "MondayText",
+      "SundayText",
+      "week"
+    ])
   },
   methods: {
     ...mapMutations("PropositionInput", ["add"]),
-    ...mapActions(["setWeekly"])
+    ...mapActions(["setWeekly"]),
+    send() {
+      sendMail(this.SundayTitle);
+    }
   }
 };
 </script>
