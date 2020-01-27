@@ -75,7 +75,8 @@ module.exports = {
     // Doc: https://github.com/bootstrap-vue/bootstrap-vue
     "bootstrap-vue/nuxt",
     // Doc: https://www.npmjs.com/package/@nuxtjs/moment
-    ["@nuxtjs/moment", ["ja"]]
+    ["@nuxtjs/moment", ["ja"]],
+    "@nuxtjs/dotenv"
   ],
   /*
    ** Axios module configuration

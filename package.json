@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/moment": "^1.5.0",
     "@nuxtjs/style-resources": "^0.1.1",
     "bootstrap-vue": "^2.0.0-rc.1",
