@@ -59,7 +59,14 @@
             </b-col>
             <!-- メール送信ボタン(未完成) -->
             <b-col cols="12">
-              <b-button pill block class="my-2" variant="success" size="lg">
+              <b-button
+                @click="send"
+                pill
+                block
+                class="my-2"
+                variant="success"
+                size="lg"
+              >
                 送信
               </b-button>
             </b-col>
@@ -76,6 +83,7 @@ import Proposition from "../components/Proposition";
 import db from "@/plugins/firebase";
 import createText from "~/modules/createText";
 import { mapState, mapMutations, mapActions } from "vuex";
+import axios from "axios";
 
 export default {
   name: "weekly",
@@ -120,7 +128,13 @@ export default {
   },
   methods: {
     ...mapMutations("PropositionInput", ["add"]),
-    ...mapActions(["setWeekly"])
+    ...mapActions(["setWeekly"]),
+    async send() {
+      axios.post("http://127.0.0.1:3000/send-email", {
+        title: this.title,
+        text: this.text
+      });
+    }
   }
 };
 </script>
