@@ -44,7 +44,6 @@
                   :value="text"
                   max-rows="100"
                 ></b-form-textarea>
-                <!-- {{ text }} -->
               </b-modal>
             </b-col>
             <b-col cols="6">
@@ -114,7 +113,7 @@ export default {
     return {
       loading: false,
       title: "",
-      text: "aaa"
+      text: ""
     };
   },
   computed: {
@@ -131,7 +130,7 @@ export default {
     ...mapMutations("PropositionInput", ["add"]),
     ...mapActions(["setWeekly"]),
     send() {
-      sendMail(this.SundayTitle);
+      sendMail(this.title, this.text);
     }
   }
 };
