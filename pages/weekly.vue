@@ -82,8 +82,8 @@
 import WorkedTime from "../components/WorkedTime";
 import Proposition from "../components/Proposition";
 import db from "@/plugins/firebase";
-import sendMail from "~/modules/sendMail";
 import createText from "~/modules/createText";
+import sendMail from "~/modules/sendMail";
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
@@ -97,10 +97,12 @@ export default {
     await store.dispatch("bindFirestore");
   },
   mounted() {
+    // 全要素読み込んでから表示(v-show)
+    this.loading = true;
     // タイトル形成
     this.title =
       "【isoroot 週報】" + this.name + " " + this.SundayTitle + "(PSG)";
-    this.loading = true; // 全要素読み込んでから表示(v-show)
+    // 本文形成
     this.text = createText(
       this.MondayText,
       this.SundayText,
