@@ -59,14 +59,7 @@
             </b-col>
             <!-- メール送信ボタン(未完成) -->
             <b-col cols="12">
-              <b-button
-                pill
-                block
-                class="my-2"
-                variant="success"
-                size="lg"
-                @click="send"
-              >
+              <b-button pill block class="my-2" variant="success" size="lg">
                 送信
               </b-button>
             </b-col>
@@ -82,7 +75,6 @@ import WorkedTime from "../components/WorkedTime";
 import Proposition from "../components/Proposition";
 import db from "@/plugins/firebase";
 import createText from "~/modules/createText";
-import sendMail from "~/modules/sendMail";
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
@@ -128,10 +120,7 @@ export default {
   },
   methods: {
     ...mapMutations("PropositionInput", ["add"]),
-    ...mapActions(["setWeekly"]),
-    send() {
-      sendMail(this.title, this.text);
-    }
+    ...mapActions(["setWeekly"])
   }
 };
 </script>
