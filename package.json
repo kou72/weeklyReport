@@ -22,7 +22,7 @@
     "firebase": "^7.7.0",
     "flag-icon-css": "^2.9.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^1.9.1",
+    "jquery": "^1.12.4",
     "nuxt": "^2.0.0",
     "simple-line-icons": "^2.4.1",
     "vue-chartjs": "^3.1.1"
